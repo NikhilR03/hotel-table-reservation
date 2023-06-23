@@ -1,0 +1,41 @@
+<div *ngIf="tableStats">
+    <h2>Table Statistics</h2>
+    <p>Total Tables: {{ tableStats.totalCount }}</p>
+    <p>Available Tables: {{ tableStats.availableCount }} ({{ tableStats.availablePercent }}%)</p>
+    <p>Full Tables: {{ tableStats.fullCount }} ({{ tableStats.fullPercent }}%)</p>
+    <p>Out of Service Tables: {{ tableStats.outOfServiceCount }} ({{ tableStats.outOfServicePercent }}%)</p>
+</div>
+
+<h2>Table List</h2>
+<input type="number" id="capacityFilter" [(ngModel)]="capacityFilter">
+<button (click)="getTablesByCapacity()">CapacityFilter</button>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Capacity</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+    <tr *ngFor="let table of tables">
+        <td>{{ table.id }}</td>
+        <td>{{ table.name }}</td>
+        <td>{{ table.capacity }}</td>
+        <td>{{ table.status }}</td>
+        <td>
+            <button (click)="updateTableStatus(table, 'AVAILABLE')">Set Available</button>
+            <button (click)="updateTableStatus(table, 'FULL')">Set Full</button>
+            <button (click)="updateTableStatus(table, 'OUT_OF_SERVICE')">Set Out of Service</button>
+        </td>
+    </tr>
+</table>
+
+<h2>Create Table</h2>
+<div>
+    <label for="tableName">Table Name:</label>
+    <input type="text" id="tableName" [(ngModel)]="newTable.name" required>
+    <label for="tableCapacity">Table Capacity:</label>
+    <input type="number" id="tableCapacity" [(ngModel)]="newTable.capacity" required>
+    <button (click)="createTable()">Create</button>
+</div>
