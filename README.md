@@ -14,7 +14,7 @@
       
 ![image](https://github.com/NikhilR03/hotel-table-reservation/assets/137254886/f47d9fc2-7ce9-4bad-bc96-5294c9f87213)
 
-Note: Deployed in azure spring run application=> [/api/<url>](https://restaurant1.wonderfulplant-d36ccb66.eastus.azurecontainerapps.io)
+Note: Deployed in azure spring run application=> [api-backend/<url>](https://restaurant1.wonderfulplant-d36ccb66.eastus.azurecontainerapps.io)
 
 ## Frontend:
 1. Gets updated list of tables.
